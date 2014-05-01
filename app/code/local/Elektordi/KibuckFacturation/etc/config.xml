@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config>
+   <modules>
+        <Elektordi_KibuckFacturation>
+          <version>1.0.0</version>
+        </Elektordi_KibuckFacturation>
+   </modules>
+   <global>
+        <blocks>
+            <kibuckfactform>
+                <class>Elektordi_KibuckFacturation_Block</class>
+            </kibuckfactform>
+        </blocks>
+   </global>
+  <admin>
+     <routers>
+         <kibuckfactform>
+            <use>admin</use>
+            <args>
+               <module>Elektordi_KibuckFacturation</module>
+               <frontName>kibuckfacturation</frontName>
+            </args>
+         </kibuckfactform>
+      </routers>
+ </admin>
+ <adminhtml>
+   <layout>
+      <updates>
+          <kibuckfactform>
+              <file>kibuckfactform.xml</file>
+           </kibuckfactform>
+      </updates>
+   </layout>
+   <menu>
+      <kibuck_outils translate="title" module="adminhtml">
+         <title>Outils Kibuck</title>
+         <sort_order>100</sort_order>
+         <children>
+             <facturation>
+                   <title>Facturation récapitulative</title>
+                   <action>kibuckfacturation/adminhtml_index</action>
+              </facturation>
+          </children>
+       </kibuck_outils>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <catalog>
+                        <children>
+                            <kibuck_outils>
+                                <title>Outils Kibuck</title>
+                            </kibuck_outils>
+                        </children>
+                    </catalog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+
+  </adminhtml>
+
+</config>

@@ -1,0 +1,70 @@
+<?php
+$format = "d/m/Y";
+$date_to = date($format, mktime(0, 0, 0, date("m"), 0, date("Y")));
+$date_from = date($format, mktime(0, 0, 0, date("m")-1, 1, date("Y")));
+?>
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?=$this->__('Système de facturation récapitulative Kibuck')?> - <i>by Elektordi</i></h3></td>
+            <!-- td class="a-right">
+                <button onclick="editForm.submit()" class="scalable save" type="button"><span><?=$this->__('Générer PDF')?></span></button>
+            </td -->
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <form id="edit_form" name="edit_form" method="post" action="<?=$this->getUrl('*/*/post')?>">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+        <h4 class="icon-head head-edit-form fieldset-legend"><?=$this->__('Paramètres de génération des factures:')?></h4>
+        <fieldset id="my-fieldset">
+            <table cellspacing="0" class="form-list">
+                <tr>
+                    <td class="label"><?=$this->__('Date de début (comprise)')?> <span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-date required-entry" name="kibuckfactform[date_from]" id="date_from" value="<?php echo $date_from; ?>"/></td>
+                </tr>
+                <tr>
+                    <td class="label"><?=$this->__('Date de fin (comprise)')?> <span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-date required-entry" name="kibuckfactform[date_to]" id="date_to"  value="<?php echo $date_to; ?>"/></td>
+                </tr>
+                <tr>
+                    <td class="label"><?=$this->__('Date de la facture')?> <span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-date required-entry" name="kibuckfactform[date_fact]" id="date_fact"  value="<?php echo $date_to; ?>"/></td>
+                </tr>
+                <tr>
+                    <td class="label"><?=$this->__('Numéro de la première facture')?> <span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-date required-entry" name="kibuckfactform[num_fact]" id="num_fact"  value=""/></td>
+                </tr>
+            </table>
+        </fieldset>
+        <button onclick="editForm.submit()" class="scalable save" type="button"><span><?=$this->__('Générer PDF')?></span></button>
+    </form>
+</div>
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form');
+
+    Calendar.setup({
+        inputField : 'date_from',
+        ifFormat : '%d/%m/%Y',
+        button : 'date_from_trig',
+        align : 'Bl',
+        singleClick : true
+    });
+
+    Calendar.setup({
+        inputField : 'date_to',
+        ifFormat : '%d/%m/%Y',
+        button : 'date_to_trig',
+        align : 'Bl',
+        singleClick : true
+    });
+    
+    Calendar.setup({
+        inputField : 'date_fact',
+        ifFormat : '%d/%m/%Y',
+        button : 'date_to_trig',
+        align : 'Bl',
+        singleClick : true
+    });
+
+</script>
