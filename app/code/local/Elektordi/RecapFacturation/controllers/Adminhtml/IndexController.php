@@ -1,6 +1,6 @@
 <?php
 
-class Elektordi_KibuckFacturation_Adminhtml_IndexController extends Mage_Adminhtml_Controller_Action
+class Elektordi_RecapFacturation_Adminhtml_IndexController extends Mage_Adminhtml_Controller_Action
 {
     // CONFIG
     private $tva = 0.21;
@@ -8,10 +8,10 @@ class Elektordi_KibuckFacturation_Adminhtml_IndexController extends Mage_Adminht
 
      public function indexAction()
      {
-          $this->_title("Facturation Kibuck");
+          $this->_title("Facturation Recap");
           
           $this->loadLayout();
-          $this->_setActiveMenu("kibuck_outils");
+          $this->_setActiveMenu("outils_fact");
           $this->renderLayout();
      }
      
@@ -30,10 +30,10 @@ class Elektordi_KibuckFacturation_Adminhtml_IndexController extends Mage_Adminht
         try {
             if (empty($post)) Mage::throwException($this->__('Erreur formulaire'));
             
-            $date_from = $post['kibuckfactform']['date_from'];
-            $date_to = $post['kibuckfactform']['date_to'];
-            $date_fact = $post['kibuckfactform']['date_fact'];
-            $num_fact = $post['kibuckfactform']['num_fact'];
+            $date_from = $post['recapfactform']['date_from'];
+            $date_to = $post['recapfactform']['date_to'];
+            $date_fact = $post['recapfactform']['date_fact'];
+            $num_fact = $post['recapfactform']['num_fact'];
             
             $pattern = "!^\d\d/\d\d/\d\d\d\d$!";
             if(!preg_match($pattern,$date_from)) Mage::throwException($this->__('Date de début invalide: '.htmlentities($date_from)));
@@ -228,8 +228,8 @@ class Elektordi_KibuckFacturation_Adminhtml_IndexController extends Mage_Adminht
                 $pdf->pages[] = $page;
             }
             
-//            $file = 'KibuckFacturation_'.time().'.pdf';
-            $file = 'KibuckFacturation_'.$num_fact.'_a_'.($nfact-1).'.pdf';
+//            $file = 'RecapFacturation_'.time().'.pdf';
+            $file = 'RecapFacturation_'.$num_fact.'_a_'.($nfact-1).'.pdf';
             $this->_prepareDownloadResponse($file, $pdf->render(), 'application/pdf');
             return;
             

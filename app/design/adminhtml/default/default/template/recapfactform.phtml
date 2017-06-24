@@ -6,7 +6,7 @@ $date_from = date($format, mktime(0, 0, 0, date("m")-1, 1, date("Y")));
 <div class="content-header">
     <table cellspacing="0" class="grid-header">
         <tr>
-            <td><h3><?=$this->__('Système de facturation récapitulative Kibuck')?> - <i>by Elektordi</i></h3></td>
+            <td><h3><?=$this->__('Système de facturation récapitulative Recap')?> - <i>by Elektordi</i></h3></td>
             <!-- td class="a-right">
                 <button onclick="editForm.submit()" class="scalable save" type="button"><span><?=$this->__('Générer PDF')?></span></button>
             </td -->
@@ -21,19 +21,19 @@ $date_from = date($format, mktime(0, 0, 0, date("m")-1, 1, date("Y")));
             <table cellspacing="0" class="form-list">
                 <tr>
                     <td class="label"><?=$this->__('Date de début (comprise)')?> <span class="required">*</span></td>
-                    <td class="input-ele"><input class="input-date required-entry" name="kibuckfactform[date_from]" id="date_from" value="<?php echo $date_from; ?>"/></td>
+                    <td class="input-ele"><input class="input-date required-entry" name="recapfactform[date_from]" id="date_from" value="<?php echo $date_from; ?>"/></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->__('Date de fin (comprise)')?> <span class="required">*</span></td>
-                    <td class="input-ele"><input class="input-date required-entry" name="kibuckfactform[date_to]" id="date_to"  value="<?php echo $date_to; ?>"/></td>
+                    <td class="input-ele"><input class="input-date required-entry" name="recapfactform[date_to]" id="date_to"  value="<?php echo $date_to; ?>"/></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->__('Date de la facture')?> <span class="required">*</span></td>
-                    <td class="input-ele"><input class="input-date required-entry" name="kibuckfactform[date_fact]" id="date_fact"  value="<?php echo $date_to; ?>"/></td>
+                    <td class="input-ele"><input class="input-date required-entry" name="recapfactform[date_fact]" id="date_fact"  value="<?php echo $date_to; ?>"/></td>
                 </tr>
                 <tr>
                     <td class="label"><?=$this->__('Numéro de la première facture')?> <span class="required">*</span></td>
-                    <td class="input-ele"><input class="input-date required-entry" name="kibuckfactform[num_fact]" id="num_fact"  value=""/></td>
+                    <td class="input-ele"><input class="input-date required-entry" name="recapfactform[num_fact]" id="num_fact"  value=""/></td>
                 </tr>
             </table>
         </fieldset>

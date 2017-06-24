@@ -1,9 +1,9 @@
 <?xml version = "1.0"?>
    <config>
       <modules>
-        <Elektordi_KibuckFacturation>
+        <Elektordi_RecapFacturation>
             <active>true</active>
             <codePool>local</codePool>
-         </Elektordi_KibuckFacturation>
+         </Elektordi_RecapFacturation>
        </modules>
     </config>

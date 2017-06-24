@@ -1,47 +1,47 @@
 <?xml version="1.0"?>
 <config>
    <modules>
-        <Elektordi_KibuckFacturation>
+        <Elektordi_RecapFacturation>
           <version>1.0.0</version>
-        </Elektordi_KibuckFacturation>
+        </Elektordi_RecapFacturation>
    </modules>
    <global>
         <blocks>
-            <kibuckfactform>
-                <class>Elektordi_KibuckFacturation_Block</class>
-            </kibuckfactform>
+            <recapfactform>
+                <class>Elektordi_RecapFacturation_Block</class>
+            </recapfactform>
         </blocks>
    </global>
   <admin>
      <routers>
-         <kibuckfactform>
+         <recapfactform>
             <use>admin</use>
             <args>
-               <module>Elektordi_KibuckFacturation</module>
-               <frontName>kibuckfacturation</frontName>
+               <module>Elektordi_RecapFacturation</module>
+               <frontName>recapfacturation</frontName>
             </args>
-         </kibuckfactform>
+         </recapfactform>
       </routers>
  </admin>
  <adminhtml>
    <layout>
       <updates>
-          <kibuckfactform>
-              <file>kibuckfactform.xml</file>
-           </kibuckfactform>
+          <recapfactform>
+              <file>recapfactform.xml</file>
+           </recapfactform>
       </updates>
    </layout>
    <menu>
-      <kibuck_outils translate="title" module="adminhtml">
-         <title>Outils Kibuck</title>
+      <outils_fact translate="title" module="adminhtml">
+         <title>Outils de facturation</title>
          <sort_order>100</sort_order>
          <children>
              <facturation>
                    <title>Facturation récapitulative</title>
-                   <action>kibuckfacturation/adminhtml_index</action>
+                   <action>recapfacturation/adminhtml_index</action>
               </facturation>
           </children>
-       </kibuck_outils>
+       </outils_fact>
     </menu>
     <acl>
         <resources>
@@ -49,9 +49,9 @@
                 <children>
                     <catalog>
                         <children>
-                            <kibuck_outils>
-                                <title>Outils Kibuck</title>
-                            </kibuck_outils>
+                            <outils_fact>
+                                <title>Outils de facturation</title>
+                            </outils_fact>
                         </children>
                     </catalog>
                 </children>
